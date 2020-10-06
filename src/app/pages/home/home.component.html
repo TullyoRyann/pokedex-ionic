@@ -1,3 +1,28 @@
-<p>
-  home works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let pokemon of pokemons" size="6">
+          <ion-item>
+            <ion-avatar>
+              <img [src]="pokemon.imgUrl">
+            </ion-avatar>
+            <ion-label>{{pokemon.nome}}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+
+</ion-content>
