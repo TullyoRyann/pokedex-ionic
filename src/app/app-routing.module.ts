@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Route } from './shared/enum/route.enum';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: Route.PAGES,
     pathMatch: 'full'
   },
+  {
+    path: Route.PAGES,
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+  }
 ];
 
 @NgModule({
@@ -15,4 +20,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
