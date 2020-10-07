@@ -5,7 +5,7 @@ import { Route } from './shared/enum/route.enum';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: Route.PAGES,
+    redirectTo: Route.HOME,
     pathMatch: 'full'
   },
   {

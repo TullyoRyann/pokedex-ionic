@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Home</ion-title>
+    <ion-title>Pokedex</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,14 +12,22 @@
   <ion-list>
     <ion-grid>
       <ion-row>
+
         <ion-col *ngFor="let pokemon of pokemons" size="6">
-          <ion-item>
-            <ion-avatar>
-              <img [src]="pokemon.imgUrl">
-            </ion-avatar>
-            <ion-label>{{pokemon.nome}}</ion-label>
-          </ion-item>
+          <ion-card>
+
+            <div class="align-items-center item-padding">
+              <ion-avatar>
+                <img [src]="pokemon.imgUrl">
+              </ion-avatar>
+            </div>
+            <div class="align-items-center item-padding">
+              <ion-label>{{pokemon.nome}}</ion-label>
+            </div>
+
+          </ion-card>
         </ion-col>
+
       </ion-row>
     </ion-grid>
   </ion-list>
