@@ -28,4 +28,12 @@ export class HomeService extends BaseServiceService {
       }));
   }
 
+  buscarPorNome(nome: string): Observable<HomeResponse[]> {
+    const serializer = new HomeSerialize();
+    return this.httpClient.get<HomeResponse[]>(`${this.resourceBaseUrl}/?name_like=${nome}`)
+      .pipe(map((response: any) => {
+        return response.map(value => serializer.fromJsonToResponseListModel(value));
+      }));
+  }
+
 }

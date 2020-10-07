@@ -1,9 +1,11 @@
 import { NgModule, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
 const angularModules: Array<Type<any> | any[]> = [
-  CommonModule
+  CommonModule,
+  FormsModule
 ];
 
 const ionicModules: Array<Type<any> | any[]> = [

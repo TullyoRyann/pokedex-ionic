@@ -9,6 +9,8 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-searchbar animated placeholder="Buscar" [(ngModel)]="buscaNomePokemon" (ionChange)="buscarPorNome()"></ion-searchbar>
+
   <ion-list>
     <ion-grid>
       <ion-row>

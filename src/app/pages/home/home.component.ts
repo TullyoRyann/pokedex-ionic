@@ -10,6 +10,7 @@ import { HomeService } from '../shared/home.service';
 export class HomeComponent implements OnInit {
 
   public pokemons: HomeResponse[] = [];
+  public buscaNomePokemon;
 
   constructor(
     private service: HomeService
@@ -19,8 +20,12 @@ export class HomeComponent implements OnInit {
     await this.listarPokemons();
   }
 
-  async listarPokemons() {
+  async listarPokemons(): Promise<void> {
     this.pokemons = await this.service.listar().toPromise();
+  }
+
+  async buscarPorNome(): Promise<void> {
+    this.pokemons = await this.service.buscarPorNome(this.buscaNomePokemon).toPromise();
   }
 
 }
