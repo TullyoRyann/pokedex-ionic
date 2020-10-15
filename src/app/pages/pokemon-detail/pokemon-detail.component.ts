@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { PokemonDetailResponse } from './shared/pokemon-detail-response.model';
 import { PokemonDetailService } from './shared/pokemon-detail.service';
 
@@ -15,7 +16,8 @@ export class PokemonDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private pokemonDetailService: PokemonDetailService
+    private pokemonDetailService: PokemonDetailService,
+    private location: Location
   ) { }
 
   async ngOnInit() {
@@ -48,6 +50,10 @@ export class PokemonDetailComponent implements OnInit {
 
     evolucoes.sort((a, b) => parseInt(a.num) < parseInt(b.num) ? -1 : parseInt(a.num) > parseInt(b.num) ? 1 : 0)
     return evolucoes;
+  }
+
+  public voltar(): void {
+    this.location.back();
   }
 
 }
