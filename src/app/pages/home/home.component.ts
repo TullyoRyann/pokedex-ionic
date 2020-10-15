@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeResponse } from '../shared/home-response.model';
 import { HomeService } from '../shared/home.service';
 
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
   public buscaNomePokemon;
 
   constructor(
-    private service: HomeService
+    private service: HomeService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -26,6 +28,10 @@ export class HomeComponent implements OnInit {
 
   async buscarPorNome(): Promise<void> {
     this.pokemons = await this.service.buscarPorNome(this.buscaNomePokemon).toPromise();
+  }
+
+  irPara(id: number) {
+    this.router.navigate(['pokemon/', id]);
   }
 
 }

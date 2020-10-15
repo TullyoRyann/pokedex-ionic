@@ -1,6 +1,7 @@
 export enum Route {
 
   HOME = 'home',
-  PAGES = 'pages'
+  PAGES = 'pages',
+  POKEMON_DETAIL = 'pokemon/:id'
 
 }

@@ -5,7 +5,7 @@ export class HomeResponse {
     public numero: number,
     public nome: string,
     public imgUrl: string,
-    public tipo: string[]
+    public tipos: string[]
   ) { }
 
 }

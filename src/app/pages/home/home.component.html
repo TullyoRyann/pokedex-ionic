@@ -16,7 +16,7 @@
       <ion-row>
 
         <ion-col *ngFor="let pokemon of pokemons" size="6">
-          <ion-card>
+          <ion-card (click)="irPara(pokemon.id)">
 
             <div class="align-items-center item-padding">
               <ion-avatar>

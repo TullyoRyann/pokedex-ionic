@@ -1,4 +1,4 @@
-import { ListSerializer } from 'src/app/shared/interface/list-serializer';
+import { ListSerializer } from 'src/app/shared/interface/serializer';
 import { HomeResponse } from './home-response.model';
 
 export class HomeSerialize implements ListSerializer {

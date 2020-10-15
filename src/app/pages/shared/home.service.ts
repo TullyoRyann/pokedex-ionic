@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BaseServiceService } from 'src/app/shared/service/base-service.service';
 import { environment } from 'src/environments/environment';
 import { HomeResponse } from './home-response.model';
-
-import { map } from 'rxjs/operators'
 import { HomeSerialize } from './home-serialize';
+
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
