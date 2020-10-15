@@ -7,6 +7,7 @@ import { PokemonDetailSerialize } from './pokemon-detail-serialize';
 
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { QueryParamsFactory } from 'src/app/shared/factory/query-params-factory';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,18 @@ export class PokemonDetailService extends BaseServiceService {
       .pipe(map((response: any) => {
         console.log(response)
         return serializer.fromJsonToResponseModel(response);
+      }));
+  }
+
+  getEvolucoes(referencias: string[]): Observable<PokemonDetailResponse[]> {
+    const queryParams = new QueryParamsFactory();
+    const params = queryParams.create(referencias);
+
+    const serializer = new PokemonDetailSerialize();
+
+    return this.httpClient.get<PokemonDetailResponse[]>(`${this.resourceBaseUrl}/${params}`)
+      .pipe(map((response: any) => {
+        return response.map(value => serializer.fromJsonToResponseModel(value));
       }));
   }
 

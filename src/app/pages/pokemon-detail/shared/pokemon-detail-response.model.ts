@@ -6,8 +6,8 @@ export class PokemonDetailResponse {
     public nome: string,
     public imgUrl: string,
     public tipos: string[],
-    public evolucaoAnterior: string[],
-    public evolucaoPosterior: string[]
+    public evolucaoAnterior: any[],
+    public evolucaoPosterior: any[]
   ) { }
 
 }

@@ -13,6 +13,7 @@ export class PokemonDetailComponent implements OnInit {
 
   public pokemon: PokemonDetailResponse;
   public evolucoes: any[] = [];
+  public corPrimaria: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +23,8 @@ export class PokemonDetailComponent implements OnInit {
 
   async ngOnInit() {
     await this.getPokemon();
-    this.evolucoes = this.getEvolucoes();
+    await this.getEvolucoes();
+    await this.getCorPrimaria();
   }
 
   async getPokemon(): Promise<void> {
@@ -38,22 +40,38 @@ export class PokemonDetailComponent implements OnInit {
     return tipo.toLowerCase();
   }
 
-  public getEvolucoes(): string[] {
-    let evolucoes = [];
-    if (this.pokemon.evolucaoPosterior && this.pokemon.evolucaoPosterior.length > 0) {
-      evolucoes = evolucoes.concat(this.pokemon.evolucaoPosterior);
-    }
-
-    if (this.pokemon.evolucaoAnterior && this.pokemon.evolucaoAnterior.length > 0) {
-      evolucoes = evolucoes.concat(this.pokemon.evolucaoAnterior);
-    }
-
-    evolucoes.sort((a, b) => parseInt(a.num) < parseInt(b.num) ? -1 : parseInt(a.num) > parseInt(b.num) ? 1 : 0)
-    return evolucoes;
-  }
-
   public voltar(): void {
     this.location.back();
+  }
+
+  public async getEvolucoes(): Promise<void> {
+    const referenciasAnterior = this.getReferenciasEvolucoesAnterior();
+    const referenciasPosterior = this.getReferenciasEvolucoesPosteriores();
+
+    const referencias = referenciasAnterior.concat(referenciasPosterior);
+
+    this.evolucoes = await this.pokemonDetailService.getEvolucoes(referencias).toPromise();
+    this.evolucoes.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+  }
+
+  private getReferenciasEvolucoesAnterior(): string[] {
+    if (!this.pokemon.evolucaoAnterior || this.pokemon.evolucaoAnterior.length == 0) {
+      return [];
+    }
+
+    return this.pokemon.evolucaoAnterior.map(evolucao => evolucao.num);
+  }
+
+  private getReferenciasEvolucoesPosteriores(): string[] {
+    if (!this.pokemon.evolucaoPosterior || this.pokemon.evolucaoPosterior.length == 0) {
+      return [];
+    }
+
+    return this.pokemon.evolucaoPosterior.map(evolucao => evolucao.num);
+  }
+
+  private async getCorPrimaria(): Promise<void> {
+    this.corPrimaria = this.pokemon.tipos[0].toLocaleLowerCase();
   }
 
 }

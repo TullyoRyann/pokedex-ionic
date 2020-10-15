@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="{{corPrimaria}}">
     <ion-buttons slot="start">
       <ion-button (click)="voltar()">
         <ion-icon name="arrow-back-outline"></ion-icon>
@@ -29,11 +29,34 @@
 
     <ion-row>
       <ion-col *ngFor="let tipo of pokemon.tipos">
-        <ion-card>
-          <ion-card-content class="ion-text-center text-white {{getColorCard(tipo)}}">
+        <ion-card color="{{getColorCard(tipo)}}">
+          <ion-card-content class="ion-text-center text-white}}">
             {{tipo}}
           </ion-card-content>
         </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card color="{{corPrimaria}}" class="margin-ev">
+          <ion-toolbar color="{{corPrimaria}}">
+            <div>
+              <ion-title size="large">Evoluções</ion-title>
+            </div>
+          </ion-toolbar>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col *ngFor="let evolucao of evolucoes" class="align-items-center">
+        <div>
+          <ion-img style="width: 80px; height: 80px;" [src]="evolucao.imgUrl"></ion-img>
+        </div>
+        <div>
+          {{evolucao.nome}}
+        </div>
       </ion-col>
     </ion-row>
 
