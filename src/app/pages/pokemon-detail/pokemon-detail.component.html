@@ -6,6 +6,10 @@
       </ion-button>
     </ion-buttons>
     <ion-title>Pokedex</ion-title>
+
+    <div *ngIf="pokemon" slot="end" class="margin-number-id">
+      #{{pokemon.numero}}
+    </div>
   </ion-toolbar>
 </ion-header>
 
