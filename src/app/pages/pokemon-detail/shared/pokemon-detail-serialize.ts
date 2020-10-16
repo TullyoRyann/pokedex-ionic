@@ -8,6 +8,8 @@ export class PokemonDetailSerialize implements ReadSerializer {
       json.id,
       json.num,
       json.name,
+      json.height,
+      json.weight,
       json.img,
       json.type,
       json.prev_evolution,

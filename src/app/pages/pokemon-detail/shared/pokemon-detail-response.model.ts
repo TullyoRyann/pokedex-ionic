@@ -4,6 +4,8 @@ export class PokemonDetailResponse {
     public id: number,
     public numero: number,
     public nome: string,
+    public altura: string,
+    public peso: string,
     public imgUrl: string,
     public tipos: string[],
     public evolucaoAnterior: any[],

@@ -335,17 +335,6 @@
   }
 }
 
-.align-items-center {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-.text-white {
-  color: #fff;
-}
-
 // Cores dos tipos
 .ion-color-rock {
   --ion-color-base: var(--ion-color-rock);
@@ -480,4 +469,23 @@
   --ion-color-contrast-rgb: var(--ion-color-normal-contrast-rgb);
   --ion-color-shade: var(--ion-color-normal-shade);
   --ion-color-tint: var(--ion-color-normal-tint);
+}
+
+.align-items-center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+.text-bold {
+  font-weight: bold;
 }

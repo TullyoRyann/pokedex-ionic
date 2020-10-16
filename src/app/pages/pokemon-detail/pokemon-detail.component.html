@@ -28,12 +28,30 @@
     </ion-row>
 
     <ion-row>
-      <ion-col *ngFor="let tipo of pokemon.tipos">
-        <ion-card color="{{getColorCard(tipo)}}">
-          <ion-card-content class="ion-text-center text-white}}">
+      <ion-col *ngFor="let tipo of pokemon.tipos" class="align-items-center">
+        <ion-card color="{{getColorCard(tipo)}}" style="width: 50%;height: 65%;">
+          <ion-card-content class="ion-text-center text-white">
             {{tipo}}
           </ion-card-content>
         </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col class="text-bold">
+        {{pokemon.altura}}
+      </ion-col>
+      <ion-col class="text-bold">
+        {{pokemon.peso}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col class="small-text">
+        Altura
+      </ion-col>
+      <ion-col class="small-text">
+        Peso
       </ion-col>
     </ion-row>
 
@@ -54,7 +72,7 @@
         <div>
           <ion-img style="width: 80px; height: 80px;" [src]="evolucao.imgUrl"></ion-img>
         </div>
-        <div>
+        <div class="small-text">
           {{evolucao.nome}}
         </div>
       </ion-col>
