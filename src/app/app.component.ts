@@ -11,6 +11,20 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
 
+  public selectedIndex = 0;
+
+  public appPages = [
+    {
+      title: 'Página Inicial',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'Elementos',
+      url: '/elemento',
+      icon: 'sunny'
+    }
+  ];
 
   constructor(
     private platform: Platform,
