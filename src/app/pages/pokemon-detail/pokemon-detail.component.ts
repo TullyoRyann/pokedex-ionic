@@ -33,7 +33,6 @@ export class PokemonDetailComponent implements OnInit {
       id = paramMap.get('id');
     })
     this.pokemon = await this.pokemonDetailService.get(id).toPromise();
-    console.log(this.pokemon)
   }
 
   public getColorCard(tipo: string) {

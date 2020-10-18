@@ -25,7 +25,6 @@ export class PokemonDetailService extends BaseServiceService {
 
     return this.httpClient.get<PokemonDetailResponse>(`${this.resourceBaseUrl}/${id}`)
       .pipe(map((response: any) => {
-        console.log(response)
         return serializer.fromJsonToResponseModel(response);
       }));
   }
