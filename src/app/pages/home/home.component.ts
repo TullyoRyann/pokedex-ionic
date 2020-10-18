@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HomeResponse } from '../shared/home-response.model';
-import { HomeService } from '../shared/home.service';
+import { HomeResponse } from './shared/home-response.model';
+import { HomeService } from './shared/home.service';
 
 @Component({
   selector: 'app-home',
