@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Elementos',
-      url: '/elemento',
+      url: '/elementos',
       icon: 'sunny'
     }
   ];

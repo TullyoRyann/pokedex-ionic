@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 import { Route } from './shared/enum/route.enum';
 
 const routes: Routes = [
@@ -9,7 +10,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: Route.PAGES,
+    path: Route.HOME,
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   }
 ];
