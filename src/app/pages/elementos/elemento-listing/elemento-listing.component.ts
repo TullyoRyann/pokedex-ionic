@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Elemento } from '../shared/elemento.enum';
 
 @Component({
   selector: 'app-elemento-listing',
@@ -7,11 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElementoListingComponent implements OnInit {
 
+  private _elementos: any[] = [];
+
   constructor(
 
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.carregarElementos()
+  }
+
+  carregarElementos(): void {
+    this.elementos = Object.keys(Elemento).map(function (key) { return Elemento[key]; });
+  }
+
+  get elementos() {
+    return this._elementos;
+  }
+
+  set elementos(elementos) {
+    this._elementos = elementos;
   }
 
 }
